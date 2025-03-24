@@ -31,7 +31,6 @@ import { Input } from "@/components/ui/input"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { UserDialog } from "@/components/dashboard/user-dialog"
 import { motion } from "framer-motion"
-import { StaggerContainer, StaggerItem } from "@/components/animations/motion"
 
 const data: Payment[] = [
   {
@@ -223,13 +222,12 @@ export default function UsersPage() {
         return (
           <div className="capitalize">
             <span
-              className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${
-                status === "success"
-                  ? "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300"
-                  : status === "processing"
-                    ? "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300"
-                    : "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300"
-              }`}
+              className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${status === "success"
+                ? "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300"
+                : status === "processing"
+                  ? "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300"
+                  : "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300"
+                }`}
             >
               {status}
             </span>
@@ -367,22 +365,17 @@ export default function UsersPage() {
               </TableHeader>
               <TableBody>
                 {table.getRowModel().rows?.length ? (
-                  <StaggerContainer>
-                    {table.getRowModel().rows.map((row) => (
-                      <StaggerItem key={row.id}>
-                        <TableRow
-                          data-state={row.getIsSelected() && "selected"}
-                          className="transition-colors hover:bg-muted/50"
-                        >
-                          {row.getVisibleCells().map((cell) => (
-                            <TableCell key={cell.id}>
-                              {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                            </TableCell>
-                          ))}
-                        </TableRow>
-                      </StaggerItem>
-                    ))}
-                  </StaggerContainer>
+                  table.getRowModel().rows.map((row) => (
+                    <TableRow
+                      key={row.id}
+                      data-state={row.getIsSelected() && "selected"}
+                      className="transition-colors hover:bg-muted/50"
+                    >
+                      {row.getVisibleCells().map((cell) => (
+                        <TableCell key={cell.id}>{flexRender(cell.column.columnDef.cell, cell.getContext())}</TableCell>
+                      ))}
+                    </TableRow>
+                  ))
                 ) : (
                   <TableRow>
                     <TableCell colSpan={columns.length} className="h-24 text-center">

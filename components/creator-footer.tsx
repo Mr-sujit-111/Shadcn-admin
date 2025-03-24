@@ -1,14 +1,11 @@
 "use client"
 
-import { motion } from "framer-motion"
-import { Github, Globe, Linkedin, Mail, Phone } from "lucide-react"
-import Link from "next/link"
 
-import { FadeIn } from "@/components/animations/motion"
 
 export function CreatorFooter() {
   return (
-    <FadeIn delay={0.5}>
+    <>
+      {/*   <FadeIn delay={0.5}>
       <div className="mt-8 border-t pt-8">
         <div className="flex flex-col space-y-4 md:flex-row md:justify-between md:space-y-0">
           <div>
@@ -64,7 +61,8 @@ export function CreatorFooter() {
           </div>
         </div>
       </div>
-    </FadeIn>
+    </FadeIn> */}
+    </>
   )
 }
 

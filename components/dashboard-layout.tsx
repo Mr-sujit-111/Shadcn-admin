@@ -83,12 +83,7 @@ const navItems: NavItem[] = [
     href: "/dashboard/analytics",
     icon: BarChart3,
   },
-  {
-    title: "Messages",
-    href: "/dashboard/messages",
-    icon: MessageSquare,
-    badge: "5",
-  },
+
   {
     title: "Components",
     href: "#",
@@ -228,12 +223,12 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
       {/* Desktop Sidebar */}
       <div
         className={cn(
-          "fixed inset-y-0 left-0 z-20 hidden w-64 flex-col border-r bg-background transition-transform md:flex",
+          "fixed inset-y-0  left-0 z-20 hidden w-64 flex-col border-r bg-background transition-transform md:flex h-full",
           !isSidebarOpen && "-translate-x-full",
         )}
       >
-        <SlideIn>
-          <div className="flex h-full flex-col bg-background group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:border group-data-[variant=floating]:border-sidebar-border group-data-[variant=floating]:shadow">
+        <SlideIn className="h-full">
+          <div className="flex  h-full flex-col bg-background group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:border group-data-[variant=floating]:border-sidebar-border group-data-[variant=floating]:shadow">
             <div className="flex h-16 items-center border-b px-4">
               <Link href="/dashboard" className="flex items-center gap-2 font-semibold">
                 <Layers className="h-6 w-6" />
